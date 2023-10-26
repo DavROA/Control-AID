@@ -30,17 +30,17 @@
           <div class="col-md-5">
             <div class="form-block">
               <div class="text-center mb-3">
-              <h3> <strong>CONTROL AID</strong></h3>
+               <img src="Vista/vendors/images/Control-AIDlogin.png" alt="Descripción de la imagen" style=" height: 70px;">
               <!-- <p class="mb-4">Lorem ipsum dolor sit amet elit. Sapiente sit aut eos consectetur adipisicing.</p> -->
               </div>
               <form action="Controlador/loginController.php" method="POST">
                 <div class="form-group first">
                   <label for="username">Usuario</label>
-                  <input type="text" class="form-control" name="username" placeholder="your-email@gmail.com" id="username">
+                  <input type="text" class="form-control" name="username" placeholder="" id="username">
                 </div>
                 <div class="form-group last mb-3">
                   <label for="password">Contraseña</label>
-                  <input type="password" class="form-control" name="pass" placeholder="Your Password" id="password">
+                  <input type="password" class="form-control" name="pass" placeholder="" id="password">
                 </div>
                 
                 <div class="d-sm-flex mb-3 align-items-center">

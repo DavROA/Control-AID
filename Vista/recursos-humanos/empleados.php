@@ -1,3 +1,10 @@
+<?php
+@session_start();
+if(empty($_SESSION['name'])){
+   header('Location: ../../index.php');
+
+}
+?>
 <!DOCTYPE html>
 <html>
 
@@ -16,6 +23,7 @@
   <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <!-- CSS -->
+    <link rel="stylesheet" href="../../Assets/css/style.css">
     <link rel="stylesheet" type="text/css" href="../vendors/styles/core.css" />
     <link rel="stylesheet" type="text/css" href="../src/plugins/jquery-steps/jquery.steps.css"
 		/>
@@ -28,34 +36,7 @@
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-GBZ3SGGX85"></script>
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2973766580778258"
         crossorigin="anonymous"></script>
-    <script>
-    window.dataLayer = window.dataLayer || [];
-
-    // function gtag() {
-    //     dataLayer.push(arguments);
-    // }
-    // gtag("js", new Date());
-
-    // gtag("config", "G-GBZ3SGGX85");
-    // </script>
-
-    <!-- Google Tag Manager -->
-    <!-- <script>
-    (function(w, d, s, l, i) {
-        w[l] = w[l] || [];
-        w[l].push({
-            "gtm.start": new Date().getTime(),
-            event: "gtm.js"
-        });
-        var f = d.getElementsByTagName(s)[0],
-            j = d.createElement(s),
-            dl = l != "dataLayer" ? "&l=" + l : "";
-        j.async = true;
-        j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
-        f.parentNode.insertBefore(j, f);
-    })(window, document, "script", "dataLayer", "GTM-NXZMQSS");
-    </script> -->
-    <!-- End Google Tag Manager -->
+ 
 </head>
 
 <body>
@@ -85,7 +66,7 @@
                         <a class="dropdown-item" href=""><i class="dw dw-user1"></i> Profile</a>
                         <a class="dropdown-item" href=""><i class="dw dw-settings2"></i> Configuración</a>
                         <!-- <a class="dropdown-item" href="faq.html"><i class="dw dw-help"></i> Help</a> -->
-                        <a class="dropdown-item" href=""><i class="dw dw-logout"></i> Salir</a>
+                        <a class="dropdown-item" href="../../Controlador/logout.php"><i class="dw dw-logout"></i> Salir</a>
                     </div>
                 </div>
             </div>
@@ -222,7 +203,7 @@
 										<li><a href="lista-empleados.php">Lista de personal</a></li>
 									</ul>
 								</li>
-                                <li><a href="puestos.php">Puestos</a></li>
+                                <!-- <li><a href="puestos.php">Puestos</a></li> -->
 							</ul>
 					</li>
                  
@@ -294,42 +275,48 @@
 										<div class="col-md-6">
 											<div class="form-group">
 												<label>Apellidos:</label>
-												<input type="text" class="form-control" id="per_apellidos" name="per_apellidos"/>
+												<input type="text" class="form-control" id="per_apellidos" name="per_apellidos" required/>
 											</div>
 										</div>
 										
 									</div>
 									<div class="row">
-										<div class="col-md-6">
+										<div class="col-md-4">
 											<div class="form-group">
 												<label>Dirección:</label>
-												<input type="text" class="form-control" id="per_direccion" name="per_direccion"/>
+												<input type="text" class="form-control" id="per_direccion" name="per_direccion" required/>
 											</div>
 										</div>
-										<div class="col-md-6">
+										<div class="col-md-4">
 											<div class="form-group">
 												<label>Colonia:</label>
-												<input type="text" class="form-control" id="per_colonia" name="per_colonia" />
+												<input type="text" class="form-control" id="per_colonia" name="per_colonia" required />
+											</div>
+										</div>
+                                        <div class="col-md-4">
+											<div class="form-group">
+												<label>Municipio:</label>
+												<input type="text" class="form-control" id="per_municipio" name="per_municipio" required/>
 											</div>
 										</div>
 									</div>
                                     <div class="row">
 										<div class="col-md-4">
 											<div class="form-group">
-												<label>Municipio:</label>
-												<input type="text" class="form-control" id="per_municipio" name="per_municipio" />
+												<label>Fecha de nacimiento</label>
+												<input type="date" class="form-control  id="per_fechaNac" name="per_fechaNac" required/>
 											</div>
 										</div>
 										<div class="col-md-4">
 											<div class="form-group">
 												<label>Teléfono:</label>
-												<input type="text" class="form-control" id="per_telefono" name="per_telefono" />
+												<input type="text" class="form-control" id="per_telefono" name="per_telefono" required/>
 											</div>
 										</div>
                                         <div class="col-md-4">
 											<div class="form-group">
 												<label>Teléfono de emergencia:</label>
-												<input type="text" class="form-control" id="per_emergencia" name="per_emergencia"/>
+												<input type="text" class="form-control" id="per_emergencia" name="per_emergencia" required/>
 											</div>
 										</div>
 									</div>
@@ -339,8 +326,8 @@
 												<label>Sexo:</label>
 												<select class="custom-select form-control" id="per_sexo" name="per_sexo">
 													<option selected disabled value="">Seleccionar</option>
-													<option value="Soltero">Femenino</option>
-													<option value="Casado">Masculino</option>
+													<option value="Femenino">Femenino</option>
+													<option value="Masculino">Masculino</option>
 												</select>
 											</div>
 										</div>
@@ -380,10 +367,20 @@
 												<label>Sucursal:</label>
 												<select class="custom-select form-control" id="per_sucursal" name="per_sucursal">
 													<option selected disabled value="">Seleccionar</option>
-													<option value="Ninguna">Ninguna</option>
-													<option value="Sucursal 1">Sucursal 1</option>
-													<option value="Sucursal 2">Secursal 2</option>
-													<option value="Sucursal 3">Sucursal 3</option>
+													<?php
+                                                     $conect = mysqli_connect("localhost"," ","","tablered_bd");
+                                                     $conect->set_charset("utf8");
+                                                     $qry_planes="SELECT * FROM sucursales";
+		                                             if ($resultado = mysqli_query($conect, $qry_planes)) {
+		                                             /* obtener array asociativo */
+		                                             while ($row = mysqli_fetch_assoc($resultado)) {
+		                                                 echo '<option value="'.$row["ID"].'">'.$row["SUCURSAL"].'</option>';
+		                                             }
+		                                             /* liberar el conjunto de resultados */
+		                                             mysqli_free_result($resultado);
+		                                             }
+                                                    echo "<br>";
+    	                                            ?>
 												</select>
 											</div>
 										</div>
@@ -393,7 +390,7 @@
 												<select class="custom-select form-control" id="per_puesto" name="per_puesto">
 													<option selected disabled value="">Seleccionar</option>
 													<?php
-                                                     $conect = mysqli_connect("localhost","root","","tablered_bd");
+                                                     $conect = mysqli_connect("localhost","root","platas123","tablered_bd");
                                                      $conect->set_charset("utf8");
                                                      $qry_planes="SELECT * FROM puestos";
 		                                             if ($resultado = mysqli_query($conect, $qry_planes)) {
@@ -412,7 +409,7 @@
                                         <div class="col-md-4">
 											<div class="form-group">
 												<label>Fecha de alta :</label>
-												<input type="text" class="form-control date-picker" placeholder="Select Date" id="per_fechaalta" name="per_fechaalta"/>
+												<input type="date" class="form-control" placeholder="Select Date" id="per_fechaalta" name="per_fechaalta" required/>
 											</div>
 										</div>
 			
@@ -433,8 +430,8 @@
 												<label>Tipo:</label>
 												<select class="custom-select form-control" id="per_tipo" name="per_tipo">
 													<option selected disabled value="">Seleccionar</option>
-													<option value="Tipo1">Tipo 1</option>
-													<option value="tipo2">Tipo 2</option>
+													<option value="Empleado">Empleado</option>
+													<option value="tipo2">Camionista</option>
 												</select>
 											</div>
 										</div>
@@ -495,33 +492,83 @@
 								<h5>Archivos</h5>
 								<section>
 									<div class="row">
-										<div class="col-md-6">
+										<div class="col-md-12">
                                                 <div class="form-group">
                                                     <label>Correo:</label>
-                                                    <input type="email" class="form-control" id="per_correo" name="per_correo " required/>
+                                                    <input type="email" class="form-control" id="per_correo" name="per_correo" required/>
                                                 </div>
 										</div>
-										<div class="col-md-6">
-                                            <div class="form-group">
-                                                <label>Subir foto</label>
-                                                <input type="file" class="form-control-file form-control height-auto">
-                                            </div>
-										</div>
+										
 									</div>
                                     <div class="row">
-										<div class="col-md-6">
+                                    <div class="col-md-4">
                                             <div class="form-group">
-                                                <label>Subir ID anverso</label>
-                                                <input type="file" class="form-control-file form-control height-auto">
+                                                <label>Subir foto</label>
+                                                <!--<input type="file" name="per_foto" id="per_foto"  class="form-control-file form-control height-auto">-->
+                                                    <div class="photo">
+                                                        <div class="prevPhoto" title="Seleccione una imagen dando click">
+                                                            <span class="delPhoto notBlock" id="X">X</span>
+                                                            <label for="foto"></label>
+                                                        </div>
+                                                        <div class="upimg">
+                                                            <input type="file" name="foto" id="foto">
+                                                        </div>
+                                                        <div id="form_alert"></div>
+                                                    </div>
+
                                             </div>
 										</div>
-										<div class="col-md-6">
+										<div class="col-md-4">
+                                            <div class="form-group">
+                                                <label>Subir ID anverso</label>
+                                                <!--<input type="file" name="per_anverso" id="per_anverso" class="form-control-file form-control height-auto">-->
+                                                <div class="photo2">
+                                                    <div class="prevPhoto2" title="Seleccione una imagen dando click">
+                                                        <span class="delPhoto2 notBlock2" id="X2">X</span>
+                                                        <label for="fotoAnverso"></label>
+                                                    </div>
+                                                    <div class="upimg2">
+                                                        <input type="file" name="fotoAnverso" id="fotoAnverso">
+                                                    </div>
+                                                    <div id="form_alert2"></div>
+                                                </div>
+                                            </div>
+										</div>
+										<div class="col-md-4">
                                             <div class="form-group">
                                                 <label>Subir ID reverso</label>
-                                                <input type="file" class="form-control-file form-control height-auto">
+                                                <!--<input type="file" name="per_reverso" id="per_reverso" class="form-control-file form-control height-auto">-->
+                                                <div class="photo3">
+                                                    <div class="prevPhoto3" title="Seleccione una imagen dando click">
+                                                        <span class="delPhoto3 notBlock3" id="X3">X</span>
+                                                        <label for="fotoReverso"></label>
+                                                    </div>
+                                                    <div class="upimg3">
+                                                        <input type="file" name="fotoReverso" id="fotoReverso">
+                                                    </div>
+                                                    <div id="form_alert3"></div>
+                                                </div>
                                             </div>
 										</div>
 									</div>
+                                    <!-- <div class="col-md-4">
+                                            <div class="">
+                                                <div class="">
+                                                    <div class="photo">
+                                                        <label for="foto" class="text-condensedLight" style="font-size: 18px;">Foto del producto:</label>
+                                                        <p></p>
+                                                        <div class="prevPhoto" title="Seleccione una imagen dando click">
+                                                            <span class="delPhoto notBlock" id="X">X</span>
+                                                            <label for="foto"></label>
+                                                        </div>
+                                                        <div class="upimg">
+                                                            <input type="file" name="foto" id="foto">
+                                                        </div>
+                                                        <div id="form_alert"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div> -->
 								</section>
 							</form>
 						</div>

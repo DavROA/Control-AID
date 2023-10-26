@@ -1,5 +1,5 @@
 <?php
-$conexion=mysqli_connect("localhost","root","","tablered_bd");
+$conexion=mysqli_connect("localhost","root","platas123","tablered_bd");
 //poder manipular acentos y la ñ
 $conexion->set_charset("utf8");
 if($_POST["username"] != "" && $_POST["pass"] != ""){
