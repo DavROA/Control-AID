@@ -23,7 +23,6 @@ if(empty($_SESSION['name'])){
   <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <!-- CSS -->
-    <link rel="stylesheet" href="../../Assets/css/style.css">
     <link rel="stylesheet" type="text/css" href="../vendors/styles/core.css" />
     <link rel="stylesheet" type="text/css" href="../src/plugins/jquery-steps/jquery.steps.css"
 		/>
@@ -275,48 +274,42 @@ if(empty($_SESSION['name'])){
 										<div class="col-md-6">
 											<div class="form-group">
 												<label>Apellidos:</label>
-												<input type="text" class="form-control" id="per_apellidos" name="per_apellidos" required/>
+												<input type="text" class="form-control" id="per_apellidos" name="per_apellidos"/>
 											</div>
 										</div>
 										
 									</div>
 									<div class="row">
-										<div class="col-md-4">
+										<div class="col-md-6">
 											<div class="form-group">
 												<label>Dirección:</label>
-												<input type="text" class="form-control" id="per_direccion" name="per_direccion" required/>
+												<input type="text" class="form-control" id="per_direccion" name="per_direccion"/>
 											</div>
 										</div>
-										<div class="col-md-4">
+										<div class="col-md-6">
 											<div class="form-group">
 												<label>Colonia:</label>
-												<input type="text" class="form-control" id="per_colonia" name="per_colonia" required />
-											</div>
-										</div>
-                                        <div class="col-md-4">
-											<div class="form-group">
-												<label>Municipio:</label>
-												<input type="text" class="form-control" id="per_municipio" name="per_municipio" required/>
+												<input type="text" class="form-control" id="per_colonia" name="per_colonia" />
 											</div>
 										</div>
 									</div>
                                     <div class="row">
 										<div class="col-md-4">
 											<div class="form-group">
-												<label>Fecha de nacimiento</label>
-												<input type="date" class="form-control  id="per_fechaNac" name="per_fechaNac" required/>
+												<label>Municipio:</label>
+												<input type="text" class="form-control" id="per_municipio" name="per_municipio" />
 											</div>
 										</div>
 										<div class="col-md-4">
 											<div class="form-group">
 												<label>Teléfono:</label>
-												<input type="text" class="form-control" id="per_telefono" name="per_telefono" required/>
+												<input type="text" class="form-control" id="per_telefono" name="per_telefono" />
 											</div>
 										</div>
                                         <div class="col-md-4">
 											<div class="form-group">
 												<label>Teléfono de emergencia:</label>
-												<input type="text" class="form-control" id="per_emergencia" name="per_emergencia" required/>
+												<input type="text" class="form-control" id="per_emergencia" name="per_emergencia"/>
 											</div>
 										</div>
 									</div>
@@ -326,8 +319,8 @@ if(empty($_SESSION['name'])){
 												<label>Sexo:</label>
 												<select class="custom-select form-control" id="per_sexo" name="per_sexo">
 													<option selected disabled value="">Seleccionar</option>
-													<option value="Femenino">Femenino</option>
-													<option value="Masculino">Masculino</option>
+													<option value="Soltero">Femenino</option>
+													<option value="Casado">Masculino</option>
 												</select>
 											</div>
 										</div>
@@ -367,20 +360,10 @@ if(empty($_SESSION['name'])){
 												<label>Sucursal:</label>
 												<select class="custom-select form-control" id="per_sucursal" name="per_sucursal">
 													<option selected disabled value="">Seleccionar</option>
-													<?php
-                                                     $conect = mysqli_connect("localhost"," ","","tablered_bd");
-                                                     $conect->set_charset("utf8");
-                                                     $qry_planes="SELECT * FROM sucursales";
-		                                             if ($resultado = mysqli_query($conect, $qry_planes)) {
-		                                             /* obtener array asociativo */
-		                                             while ($row = mysqli_fetch_assoc($resultado)) {
-		                                                 echo '<option value="'.$row["ID"].'">'.$row["SUCURSAL"].'</option>';
-		                                             }
-		                                             /* liberar el conjunto de resultados */
-		                                             mysqli_free_result($resultado);
-		                                             }
-                                                    echo "<br>";
-    	                                            ?>
+													<option value="Ninguna">Ninguna</option>
+													<option value="Sucursal 1">Sucursal 1</option>
+													<option value="Sucursal 2">Secursal 2</option>
+													<option value="Sucursal 3">Sucursal 3</option>
 												</select>
 											</div>
 										</div>
@@ -390,7 +373,7 @@ if(empty($_SESSION['name'])){
 												<select class="custom-select form-control" id="per_puesto" name="per_puesto">
 													<option selected disabled value="">Seleccionar</option>
 													<?php
-                                                     $conect = mysqli_connect("localhost","root","platas123","tablered_bd");
+                                                     $conect = mysqli_connect("localhost","root","","tablered_bd");
                                                      $conect->set_charset("utf8");
                                                      $qry_planes="SELECT * FROM puestos";
 		                                             if ($resultado = mysqli_query($conect, $qry_planes)) {
@@ -409,7 +392,7 @@ if(empty($_SESSION['name'])){
                                         <div class="col-md-4">
 											<div class="form-group">
 												<label>Fecha de alta :</label>
-												<input type="date" class="form-control" placeholder="Select Date" id="per_fechaalta" name="per_fechaalta" required/>
+												<input type="text" class="form-control date-picker" placeholder="Select Date" id="per_fechaalta" name="per_fechaalta"/>
 											</div>
 										</div>
 			
@@ -430,8 +413,8 @@ if(empty($_SESSION['name'])){
 												<label>Tipo:</label>
 												<select class="custom-select form-control" id="per_tipo" name="per_tipo">
 													<option selected disabled value="">Seleccionar</option>
-													<option value="Empleado">Empleado</option>
-													<option value="tipo2">Camionista</option>
+													<option value="Tipo1">Tipo 1</option>
+													<option value="tipo2">Tipo 2</option>
 												</select>
 											</div>
 										</div>
@@ -492,83 +475,33 @@ if(empty($_SESSION['name'])){
 								<h5>Archivos</h5>
 								<section>
 									<div class="row">
-										<div class="col-md-12">
+										<div class="col-md-6">
                                                 <div class="form-group">
                                                     <label>Correo:</label>
-                                                    <input type="email" class="form-control" id="per_correo" name="per_correo" required/>
+                                                    <input type="email" class="form-control" id="per_correo" name="per_correo " required/>
                                                 </div>
 										</div>
-										
-									</div>
-                                    <div class="row">
-                                    <div class="col-md-4">
+										<div class="col-md-6">
                                             <div class="form-group">
                                                 <label>Subir foto</label>
-                                                <!--<input type="file" name="per_foto" id="per_foto"  class="form-control-file form-control height-auto">-->
-                                                    <div class="photo">
-                                                        <div class="prevPhoto" title="Seleccione una imagen dando click">
-                                                            <span class="delPhoto notBlock" id="X">X</span>
-                                                            <label for="foto"></label>
-                                                        </div>
-                                                        <div class="upimg">
-                                                            <input type="file" name="foto" id="foto">
-                                                        </div>
-                                                        <div id="form_alert"></div>
-                                                    </div>
-
-                                            </div>
-										</div>
-										<div class="col-md-4">
-                                            <div class="form-group">
-                                                <label>Subir ID anverso</label>
-                                                <!--<input type="file" name="per_anverso" id="per_anverso" class="form-control-file form-control height-auto">-->
-                                                <div class="photo2">
-                                                    <div class="prevPhoto2" title="Seleccione una imagen dando click">
-                                                        <span class="delPhoto2 notBlock2" id="X2">X</span>
-                                                        <label for="fotoAnverso"></label>
-                                                    </div>
-                                                    <div class="upimg2">
-                                                        <input type="file" name="fotoAnverso" id="fotoAnverso">
-                                                    </div>
-                                                    <div id="form_alert2"></div>
-                                                </div>
-                                            </div>
-										</div>
-										<div class="col-md-4">
-                                            <div class="form-group">
-                                                <label>Subir ID reverso</label>
-                                                <!--<input type="file" name="per_reverso" id="per_reverso" class="form-control-file form-control height-auto">-->
-                                                <div class="photo3">
-                                                    <div class="prevPhoto3" title="Seleccione una imagen dando click">
-                                                        <span class="delPhoto3 notBlock3" id="X3">X</span>
-                                                        <label for="fotoReverso"></label>
-                                                    </div>
-                                                    <div class="upimg3">
-                                                        <input type="file" name="fotoReverso" id="fotoReverso">
-                                                    </div>
-                                                    <div id="form_alert3"></div>
-                                                </div>
+                                                <input type="file" class="form-control-file form-control height-auto">
                                             </div>
 										</div>
 									</div>
-                                    <!-- <div class="col-md-4">
-                                            <div class="">
-                                                <div class="">
-                                                    <div class="photo">
-                                                        <label for="foto" class="text-condensedLight" style="font-size: 18px;">Foto del producto:</label>
-                                                        <p></p>
-                                                        <div class="prevPhoto" title="Seleccione una imagen dando click">
-                                                            <span class="delPhoto notBlock" id="X">X</span>
-                                                            <label for="foto"></label>
-                                                        </div>
-                                                        <div class="upimg">
-                                                            <input type="file" name="foto" id="foto">
-                                                        </div>
-                                                        <div id="form_alert"></div>
-                                                    </div>
-                                                </div>
+                                    <div class="row">
+										<div class="col-md-6">
+                                            <div class="form-group">
+                                                <label>Subir ID anverso</label>
+                                                <input type="file" class="form-control-file form-control height-auto">
                                             </div>
-                                        </div> -->
+										</div>
+										<div class="col-md-6">
+                                            <div class="form-group">
+                                                <label>Subir ID reverso</label>
+                                                <input type="file" class="form-control-file form-control height-auto">
+                                            </div>
+										</div>
+									</div>
 								</section>
 							</form>
 						</div>
