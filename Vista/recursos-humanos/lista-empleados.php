@@ -270,7 +270,7 @@
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label>Fecha de Nacimiento :</label>
-                                        <input type="date" class="form-control date-picker" placeholder="Select Date"
+                                        <input type="date" class="form-control" placeholder="Select Date"
                                             id="edt_per_fechanac" name="edt_per_fechanac" />
                                     </div>
                                 </div>
@@ -383,7 +383,7 @@
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label>Fecha de alta :</label>
-                                        <input type="date" class="form-control date-picker" placeholder="Select Date"
+                                        <input type="date" class="form-control" placeholder="Select Date"
                                             id="edt_per_fechaalta" name="edt_per_fechaalta" />
                                     </div>
                                 </div>
@@ -656,7 +656,7 @@
                                     <div class="form-group">
                                         <input type="hidden" name="id" id="id" value="">
                                         <input type="hidden" name="trid" id="trid" value="">
-                                        </div>
+                                        </div> 
                                     </div>
                                 </div>
                                 <div class="row">
