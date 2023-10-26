@@ -124,7 +124,7 @@
 }
 
 .wizard-content .wizard>.content>.body {
-	padding: 0 10px;
+	padding: 0 20px;
 }
 
 .wizard-content .wizard>.content>iframe {
@@ -162,13 +162,13 @@
 }
 
 .wizard-content .wizard>.actions>ul>li>a {
-	background: #009efb ;
+	background: #142127 ;
 	color: #fff;
 	display: block;
-	padding: 7px 12px;
-	border-radius: 4px;
+	padding: 10px 100px;
+	border-radius: 6px;
 	border: 1px solid transparent;
-	min-width: 100px;
+	min-width: 200px;
 	text-align: center;
 }
 
@@ -185,8 +185,8 @@
 
 .wizard-content .wizard>.actions>ul>li>a[href="#previous"] {
 	background-color: #fff;
-	color: #009efb;
-	border: 1px solid #009efb;
+	color: #142127;
+	border: 1px solid #142127;
 }
 
 .wizard-content .wizard>.actions>ul>li>a[href="#previous"]:focus,
