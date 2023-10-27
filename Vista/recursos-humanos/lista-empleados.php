@@ -419,7 +419,7 @@
                                             name="edt_per_subtipo">
                                             <option selected disabled value="">Seleccionar</option>
                                             <option value="Normal">Normal</option>
-                                            <option value="Asimilado">Asimilado</option>
+                                            <option value="Asimilado">Otros</option>
                                         </select>
                                     </div>
                                 </div>
