@@ -408,7 +408,7 @@
                                             name="edt_per_tipo">
                                             <option selected disabled value="">Seleccionar</option>
                                             <option value="Empleado">Empleado</option>
-                                            <option value="Camionista">Camionista</option>
+                                            <option value="Comisionista">Comisionista</option>
                                         </select>
                                     </div>
                                 </div>
