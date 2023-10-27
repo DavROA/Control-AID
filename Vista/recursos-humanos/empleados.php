@@ -99,65 +99,6 @@ if(empty($_SESSION['name'])){
                     <a href="javascript:void(0);" class="btn btn-outline-dark sidebar-light">Blanco </a>
                     <a href="javascript:void(0);" class="btn btn-outline-dark sidebar-dark active">Oscuro</a>
                 </div>
-
-                <!-- <h4 class="weight-600 font-18 pb-10">Icono de menú desplegable</h4>
-                <div class="sidebar-radio-group pb-10 mb-10">
-                    <div class="custom-control custom-radio custom-control-inline">
-                        <input type="radio" id="sidebaricon-1" name="menu-dropdown-icon" class="custom-control-input"
-                            value="icon-style-1" checked="" />
-                        <label class="custom-control-label" for="sidebaricon-1"><i class="fa fa-angle-down"></i></label>
-                    </div>
-                    <div class="custom-control custom-radio custom-control-inline">
-                        <input type="radio" id="sidebaricon-2" name="menu-dropdown-icon" class="custom-control-input"
-                            value="icon-style-2" />
-                        <label class="custom-control-label" for="sidebaricon-2"><i class="ion-plus-round"></i></label>
-                    </div>
-                    <div class="custom-control custom-radio custom-control-inline">
-                        <input type="radio" id="sidebaricon-3" name="menu-dropdown-icon" class="custom-control-input"
-                            value="icon-style-3" />
-                        <label class="custom-control-label" for="sidebaricon-3"><i
-                                class="fa fa-angle-double-right"></i></label>
-                    </div>
-                </div>
-
-                <h4 class="weight-600 font-18 pb-10">Icono de lista de menú</h4>
-                <div class="sidebar-radio-group pb-30 mb-10">
-                    <div class="custom-control custom-radio custom-control-inline">
-                        <input type="radio" id="sidebariconlist-1" name="menu-list-icon" class="custom-control-input"
-                            value="icon-list-style-1" checked="" />
-                        <label class="custom-control-label" for="sidebariconlist-1"><i
-                                class="ion-minus-round"></i></label>
-                    </div>
-                    <div class="custom-control custom-radio custom-control-inline">
-                        <input type="radio" id="sidebariconlist-2" name="menu-list-icon" class="custom-control-input"
-                            value="icon-list-style-2" />
-                        <label class="custom-control-label" for="sidebariconlist-2"><i class="fa fa-circle-o"
-                                aria-hidden="true"></i></label>
-                    </div>
-                    <div class="custom-control custom-radio custom-control-inline">
-                        <input type="radio" id="sidebariconlist-3" name="menu-list-icon" class="custom-control-input"
-                            value="icon-list-style-3" />
-                        <label class="custom-control-label" for="sidebariconlist-3"><i class="dw dw-check"></i></label>
-                    </div>
-                    <div class="custom-control custom-radio custom-control-inline">
-                        <input type="radio" id="sidebariconlist-4" name="menu-list-icon" class="custom-control-input"
-                            value="icon-list-style-4" checked="" />
-                        <label class="custom-control-label" for="sidebariconlist-4"><i
-                                class="icon-copy dw dw-next-2"></i></label>
-                    </div>
-                    <div class="custom-control custom-radio custom-control-inline">
-                        <input type="radio" id="sidebariconlist-5" name="menu-list-icon" class="custom-control-input"
-                            value="icon-list-style-5" />
-                        <label class="custom-control-label" for="sidebariconlist-5"><i
-                                class="dw dw-fast-forward-1"></i></label>
-                    </div>
-                    <div class="custom-control custom-radio custom-control-inline">
-                        <input type="radio" id="sidebariconlist-6" name="menu-list-icon" class="custom-control-input"
-                            value="icon-list-style-6" />
-                        <label class="custom-control-label" for="sidebariconlist-6"><i class="dw dw-next"></i></label>
-                    </div>
-                </div> -->
-
                 <div class="reset-options pt-30 text-center">
                     <button class="btn btn-dark" id="reset-settings">
                         Reiniciar configuración
@@ -368,7 +309,7 @@ if(empty($_SESSION['name'])){
 												<select class="custom-select form-control" id="per_sucursal" name="per_sucursal">
 													<option selected disabled value="">Seleccionar</option>
 													<?php
-                                                     $conect = mysqli_connect("localhost"," ","","tablered_bd");
+                                                     $conect = mysqli_connect("localhost","root","","tablered_bd");
                                                      $conect->set_charset("utf8");
                                                      $qry_planes="SELECT * FROM sucursales";
 		                                             if ($resultado = mysqli_query($conect, $qry_planes)) {
@@ -390,7 +331,7 @@ if(empty($_SESSION['name'])){
 												<select class="custom-select form-control" id="per_puesto" name="per_puesto">
 													<option selected disabled value="">Seleccionar</option>
 													<?php
-                                                     $conect = mysqli_connect("localhost","root","platas123","tablered_bd");
+                                                     $conect = mysqli_connect("localhost","root","","tablered_bd");
                                                      $conect->set_charset("utf8");
                                                      $qry_planes="SELECT * FROM puestos";
 		                                             if ($resultado = mysqli_query($conect, $qry_planes)) {
@@ -420,8 +361,8 @@ if(empty($_SESSION['name'])){
 												<label>¿Maneja automovil?:</label>
 												<select class="custom-select form-control" id="per_manejaauto" name="per_manejaauto">
 													<option selected disabled value="">Seleccionar</option>
-													<option value="si">Si</option>
-													<option value="no">No</option>
+													<option value="Si">Si</option>
+													<option value="No">No</option>
 												</select>
 											</div>
 										</div>
@@ -431,7 +372,7 @@ if(empty($_SESSION['name'])){
 												<select class="custom-select form-control" id="per_tipo" name="per_tipo">
 													<option selected disabled value="">Seleccionar</option>
 													<option value="Empleado">Empleado</option>
-													<option value="tipo2">Camionista</option>
+													<option value="Comisionista">Comisionista</option>
 												</select>
 											</div>
 										</div>
@@ -440,8 +381,8 @@ if(empty($_SESSION['name'])){
 												<label>Subtipo:</label>
 												<select class="custom-select form-control" id="per_subtipo" name="per_subtipo">
 													<option selected disabled value="">Seleccionar</option>
-													<option value="normal">Normal</option>
-													<option value="asimilado">Asimilado</option>
+													<option value="Normal">Normal</option>
+                                                    <option value="Otros">Otros</option>
 												</select>
 											</div>
 										</div>
@@ -578,7 +519,7 @@ if(empty($_SESSION['name'])){
 			</div>
 		</div>
   
-    
+     
     <!-- welcome modal end -->
     <!-- js -->
     <script src="../vendors/scripts/core.js"></script>
@@ -587,12 +528,12 @@ if(empty($_SESSION['name'])){
     <script src="../vendors/scripts/layout-settings.js"></script>
     <script src="../src/plugins/jquery-steps/jquery.steps.js"></script>
 	<script src="../vendors/scripts/steps-setting.js"></script>
-    <script src="../src/plugins/apexcharts/apexcharts.min.js"></script>
+    <!-- <script src="../src/plugins/apexcharts/apexcharts.min.js"></script> -->
     <script src="../src/plugins/datatables/js/jquery.dataTables.min.js"></script>
     <script src="../src/plugins/datatables/js/dataTables.bootstrap4.min.js"></script>
     <script src="../src/plugins/datatables/js/dataTables.responsive.min.js"></script>
     <script src="../src/plugins/datatables/js/responsive.bootstrap4.min.js"></script>
-    <script src="../vendors/scripts/dashboard3.js"></script>
+    <!-- <script src="../vendors/scripts/dashboard3.js"></script> -->
 	<script src="../../JS/personal_funciones.js"></script>
 
     <!-- Google Tag Manager (noscript) -->

@@ -216,7 +216,7 @@
         <div class="modal-dialog modal-lg modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4 class="modal-title" id="myLargeModalLabel"> Editar datos </h4>
+                    <h4 class="modal-title" id="myLargeModalLabel2"> Editar datos </h4>
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true"> × </button>
                 </div>
                 <div class="modal-body">
@@ -502,7 +502,7 @@
         <div class="modal-dialog modal-lg modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4 class="modal-title" id="myLargeModalLabel"> Datos de: <a id="view_per_nombre"> </a>
+                    <h4 class="modal-title" id="myLargeModalLabel3"> Datos de: <a id="view_per_nombre"> </a>
                                 <a id="view_per_apellidos"></a> </h4>
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true"> × </button>
                 </div>
@@ -700,7 +700,7 @@
     <script src="../src/plugins/datatables/js/dataTables.bootstrap4.min.js"></script>
     <script src="../src/plugins/datatables/js/dataTables.responsive.min.js"></script>
     <script src="../src/plugins/datatables/js/responsive.bootstrap4.min.js"></script>
-    <script src="../vendors/scripts/dashboard3.js"></script>
+    <!-- <script src="../vendors/scripts/dashboard3.js"></script> -->
     <script src="../../JS/personal_funciones.js"></script>
     <!-- buttons for Export datatable -->
     <script src="../src/plugins/datatables/js/dataTables.buttons.min.js"></script>
